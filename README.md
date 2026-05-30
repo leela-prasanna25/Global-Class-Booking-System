@@ -441,3 +441,156 @@ The application will be available at:
 ```text
 http://localhost:8080
 ```
+
+## 11. Live Deployment
+
+The application has been successfully deployed on AWS EC2 and is publicly accessible.
+
+### Live API Base URL
+
+http://98.94.15.187:8080
+
+---
+
+### Course APIs
+
+#### Create Course
+POST http://98.94.15.187:8080/courses
+
+Sample Request Body:
+
+```json
+{
+  "name": "MatheMatics"
+}
+```
+
+#### Get All Courses
+GET http://98.94.15.187:8080/courses
+
+---
+
+### Teacher APIs
+
+#### Create Teacher
+POST http://98.94.15.187:8080/teachers
+
+Sample Request Body:
+
+```json
+{
+  "name": "srinivas",
+  "timezone": "Asia/Kolkata"
+}
+```
+
+#### Get All Teachers
+GET http://98.94.15.187:8080/teachers
+
+---
+
+### Parent APIs
+
+#### Create Parent
+POST http://98.94.15.187:8080/parents
+
+Sample Request Body:
+
+```json
+{
+  "name": "Divya",
+  "timezone": "America/New_York"
+}
+```
+
+#### Get All Parents
+GET http://98.94.15.187:8080/parents
+
+---
+
+### Offering APIs
+
+#### Create Offering
+POST http://98.94.15.187:8080/offerings
+
+Sample Request Body:
+
+```json
+{
+  "batchName": "Weekend Batch",
+  "course": {
+    "id": 1
+  },
+  "teacher": {
+    "id": 1
+  }
+}
+```
+
+#### Get All Offerings
+GET http://98.94.15.187:8080/offerings
+
+---
+
+### Session APIs
+
+#### Create Session
+POST http://98.94.15.187:8080/sessions
+
+Sample Request Body:
+
+```json
+{
+  "startTime": "2026-06-07T18:00:00",
+  "endTime": "2026-06-07T19:00:00",
+  "offering": {
+    "id": 1
+  }
+}
+```
+
+#### Get All Sessions
+GET http://98.94.15.187:8080/sessions
+
+#### Get Sessions for Parent Timezone
+GET http://98.94.15.187:8080/sessions/parent/{parentId}
+
+---
+
+### Booking APIs
+
+#### Create Booking
+POST http://98.94.15.187:8080/bookings
+
+Sample Request Body:
+
+```json
+{
+  "parent": {
+    "id": 1
+  },
+  "offering": {
+    "id": 1
+  }
+}
+```
+
+#### Get All Bookings
+GET http://98.94.15.187:8080/bookings
+
+---
+
+### Deployment Environment
+
+- Hosted on AWS EC2
+- Java 17
+- Spring Boot
+- MySQL-compatible database (MariaDB)
+- Maven
+
+### Notes
+
+- Application deployed as an executable Spring Boot JAR.
+- Port 8080 is exposed through the EC2 Security Group.
+- Database is hosted on the EC2 instance using MariaDB.
+- Timezone conversion and booking conflict detection are implemented.
