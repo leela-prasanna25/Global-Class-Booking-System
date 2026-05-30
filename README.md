@@ -238,6 +238,12 @@ Request Body
 
 GET /bookings
 
+
+## API Documentation
+
+Postman Collection:
+
+`postman/bookings.postman_collection.json`
 ---
 
 ## 6. Database Schema Overview
